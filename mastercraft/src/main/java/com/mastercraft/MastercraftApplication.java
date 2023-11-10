@@ -1,4 +1,4 @@
-package com.example.mastercraft;
+package com.mastercraft;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
