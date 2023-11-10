@@ -2,6 +2,8 @@ package com.mastercraft.entity;
 
 import java.util.List;
 
+import com.mastercraft.util.UserRole;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -32,8 +34,7 @@ public class User {
 	@Column(nullable = false, unique = true)
 	private long phone;
 
-	@Column(nullable = false)	
-	private String role; // Admin / Merchant / Customer
+	private UserRole role; // ADMIN / MERCHANT / CUSTOMER
 
 	private Address address; // Customer
 	
