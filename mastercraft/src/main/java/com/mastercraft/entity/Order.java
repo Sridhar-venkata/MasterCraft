@@ -24,10 +24,13 @@ public class Order {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int orderId;
+	
 	@CreationTimestamp
 	private LocalDateTime createdOn;
+	
 	@Column(nullable = false)
 	private LocalDateTime expDeliveryDate;
+	
 	@Column(precision = 2)
 	private double totalPrice;
 	

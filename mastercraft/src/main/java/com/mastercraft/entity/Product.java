@@ -17,13 +17,17 @@ public class Product {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int productId;
+	
 	@Column(nullable = false)
 	private String name;
+	
 	private String description;
+	
 	@Column(nullable = false)
 	private int quantity;
+	
 	@Column(precision = 2)
 	private double price;
 	
-	private List<Review> review;
+	private List<Review> reviews;
 }

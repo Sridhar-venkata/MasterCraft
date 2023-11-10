@@ -23,5 +23,4 @@ public class Review {
 	@CreationTimestamp
 	private LocalDateTime createdOn;
 	private int ratings;
-	private Product product;
 }
