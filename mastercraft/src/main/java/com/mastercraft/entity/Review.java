@@ -22,5 +22,5 @@ public class Review {
 	private String description;
 	@CreationTimestamp
 	private LocalDateTime createdOn;
-	private int ratings;
+	private int rating;
 }

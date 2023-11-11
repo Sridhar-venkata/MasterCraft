@@ -10,6 +10,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
@@ -35,20 +36,21 @@ public class User {
 	private String password;
 
 	@Column(nullable = false, unique = true)
-	private long phone;
+	private long phoneNumber;
 
 	private UserRole role; // ADMIN / MERCHANT / CUSTOMER
 
 	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "gst_id")
 	private GST gst;
 	
 	@OneToMany
 	private List<Address> address; // Customer
 	
-	@OneToMany
+	@OneToMany(mappedBy = "merchant")
 	private List<Product> products; // Merchant
 	
-	@OneToMany
+	@OneToMany(mappedBy = "customer")
 	private List<Order> orders; // Customer
 
 }
