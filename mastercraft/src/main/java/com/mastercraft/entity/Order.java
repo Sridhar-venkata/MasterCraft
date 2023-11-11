@@ -11,12 +11,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
-import lombok.Getter;
-import lombok.Setter;
 
-@Getter
-@Setter
 @Entity
 @Table(name="orders")
 public class Order {
@@ -34,5 +31,6 @@ public class Order {
 	@Column(precision = 2)
 	private double totalPrice;
 	
-	private List<Product> product;
+	@OneToMany
+	private List<Product> products;
 }
