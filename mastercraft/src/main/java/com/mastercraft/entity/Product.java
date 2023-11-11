@@ -34,7 +34,7 @@ public class Product {
 	@Column(precision = 2)
 	private double price;
 	
-	@OneToMany(cascade = CascadeType.ALL)
+	@OneToMany
 	private List<Review> reviews;
 	
 	@ManyToOne
