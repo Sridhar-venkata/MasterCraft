@@ -20,6 +20,6 @@ public class GST {
 	@Column(nullable = false, unique = true)
 	private String gstNumber;
 
-	@OneToOne
-	private User customer;
+	@OneToOne(mappedBy = "gst")
+	private User merchant;
 }

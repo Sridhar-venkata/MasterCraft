@@ -8,8 +8,10 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import lombok.Builder.Default;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -36,5 +38,6 @@ public class Product {
 	private List<Review> reviews;
 	
 	@ManyToOne
+	@JoinColumn(name = "merchant_id")
 	private User merchant;
 }
