@@ -21,6 +21,8 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
+@Setter
+@Getter
 @Table(name="orders")
 public class Order {
 	

@@ -54,6 +54,6 @@ public class User {
 	private List<Order> orders; // Customer
 	
 	@OneToOne
-	private Cart cart;
+	private Cart cart;  //Customer
 
 }
