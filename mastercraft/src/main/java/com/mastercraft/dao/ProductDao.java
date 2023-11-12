@@ -23,19 +23,17 @@ public class ProductDao {
 		return productRepository.save(product);
 	}
 
-	public boolean deleteProduct(int id) {
+	public void deleteProduct(int productId) {
 
-		Optional<Product> optional = productRepository.findById(id);
+		Optional<Product> optional = productRepository.findById(productId);
 
 		if (optional.isPresent()) {
 			productRepository.delete(optional.get());
-			return true;
 		}
-		return false;
 	}
 
-	public Product findById(int id) {
-		Optional<Product> optional = productRepository.findById(id);
+	public Product findById(int productId) {
+		Optional<Product> optional = productRepository.findById(productId);
 
 		if (optional.isPresent())
 			return optional.get();
@@ -43,9 +41,9 @@ public class ProductDao {
 		return null;
 	}
 
-	public List<Product> findByName(String name) {
+	public List<Product> findByName(String productName) {
 
-		return productRepository.findByName(name);
+		return productRepository.findByName(productName);
 
 	}
 }
