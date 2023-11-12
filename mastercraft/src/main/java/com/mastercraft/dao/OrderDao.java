@@ -32,7 +32,12 @@ public class OrderDao {
 		return orderRepository.findOrderByUserId(userId);
 	}
 
+	public List<Order> findAllOrder() {
+		return orderRepository.findAll();
+	}
+
 	public void deleteOrder(Order order) {
 		orderRepository.delete(order);
 	}
+
 }
