@@ -41,9 +41,7 @@ public class ReviewDao {
 	
 	public void deleteReviewById(Review review)
 	{
-		
-			reviewRepository.delete(review);
-		
+			reviewRepository.delete(review);	
 		
 	}
 
