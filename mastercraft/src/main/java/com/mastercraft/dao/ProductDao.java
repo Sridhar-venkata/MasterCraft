@@ -23,13 +23,8 @@ public class ProductDao {
 		return productRepository.save(product);
 	}
 
-	public void deleteProduct(int productId) {
-
-		Optional<Product> optional = productRepository.findById(productId);
-
-		if (optional.isPresent()) {
-			productRepository.delete(optional.get());
-		}
+	public void deleteProduct(Product product) {
+		productRepository.delete(product);
 	}
 
 	public Product findById(int productId) {
