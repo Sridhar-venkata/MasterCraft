@@ -37,7 +37,11 @@ public class UserDao {
 		return userRepository.findByPhoneNumberAndPassword(phoneNumber, password);
 	}
 
-	public void deleteUserById(User user) {		
+	public void deleteUser(User user) {		
 		userRepository.delete(user);
+	}
+
+	public List<User> findAllUsers() {
+		return userRepository.findAll();
 	}
 }
