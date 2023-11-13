@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import com.mastercraft.dto.ResponseStructure;
 
 @ControllerAdvice
-public class AddressExceptionHandler {
+public class AddressExceptionHandler extends ResponseEntityExceptionHandler{
 	
 	@ExceptionHandler(NoSuchAddressFoundException.class)
 	public ResponseEntity<ResponseStructure<String>> catchNoSuchAddressFound(NoSuchAddressFoundException noSuchAddressFound){
