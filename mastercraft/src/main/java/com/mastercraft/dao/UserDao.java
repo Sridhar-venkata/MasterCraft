@@ -1,10 +1,6 @@
 package com.mastercraft.dao;
 
 
-import java.util.Optional;
-
-
-
 import java.util.List;
 import java.util.Optional;
 
@@ -13,7 +9,6 @@ import org.springframework.stereotype.Repository;
 
 import com.mastercraft.entity.User;
 import com.mastercraft.repository.UserRepository;
-
 import com.mastercraft.util.UserRole;
 
 @Repository
