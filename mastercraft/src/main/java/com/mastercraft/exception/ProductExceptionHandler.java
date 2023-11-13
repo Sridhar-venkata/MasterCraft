@@ -12,7 +12,7 @@ import com.mastercraft.dto.ResponseStructure;
 public class ProductExceptionHandler extends ResponseEntityExceptionHandler{
 	
 	@ExceptionHandler(NoSuchProductFoundException.class)
-	public ResponseEntity<ResponseStructure<String>> productNoSuchProductFound(NoSuchProductFoundException noSuchProductFoundException){
+	public ResponseEntity<ResponseStructure<String>> catchNoSuchProductFound(NoSuchProductFoundException noSuchProductFoundException){
 		
 		ResponseStructure<String> responseStructure=new ResponseStructure<String>();
 		responseStructure.setStatusCode(HttpStatus.NOT_FOUND.value());
