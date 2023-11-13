@@ -1,6 +1,9 @@
 package com.mastercraft.dao;
 
+
 import java.util.Optional;
+
+
 
 import java.util.List;
 import java.util.Optional;
@@ -19,11 +22,7 @@ public class UserDao {
 	@Autowired
 	private UserRepository userRepository;
 
-	public User saveUser(User user) {
-		return userRepository.save(user);
-	}
-
-	public User updateUser(User user) {
+	public User saveOrUpdateUser(User user) {
 		return userRepository.save(user);
 	}
 
@@ -48,5 +47,6 @@ public class UserDao {
 		userRepository.delete(user);
 
 	}
+
 
 }

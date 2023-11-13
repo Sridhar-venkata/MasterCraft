@@ -1,7 +1,5 @@
 package com.mastercraft.repository;
 
-
-
 import java.util.List;
 
 
@@ -11,7 +9,6 @@ import org.springframework.data.jpa.repository.Query;
 import com.mastercraft.entity.User;
 
 import com.mastercraft.util.UserRole;
-
 
 public interface UserRepository extends JpaRepository<User, Integer> {
 
