@@ -1,5 +1,6 @@
 package com.mastercraft.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,10 +25,26 @@ public class OrderService {
 	@Autowired
 	private UserDao userDao;
 
-	public ResponseEntity<ResponseStructure<Order>> saveOrder(Order order) {
+	public ResponseEntity<ResponseStructure<Order>> saveOrder(int customerId, Order order) {
+
+		User customer = userDao.findUserById(customerId);
+
+		if (customer == null)
+			throw new NoSuchUserFoundException("Invalid user ID: " + customerId);
 
 		order = orderDao.saveOrUpdateOrder(order);
 
+		List<Order> orders = customer.getOrders();
+		
+		if(orders == null)
+			orders = new ArrayList<>();
+			
+		orders.add(order);
+		
+		customer.setOrders(orders);
+		
+		userDao.saveOrUpdateUser(customer);
+		
 		ResponseStructure<Order> rs = new ResponseStructure<Order>(HttpStatus.CREATED.value(), "Success", order);
 
 		return new ResponseEntity<ResponseStructure<Order>>(rs, HttpStatus.CREATED);

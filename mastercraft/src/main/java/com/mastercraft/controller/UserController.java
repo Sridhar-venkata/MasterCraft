@@ -61,6 +61,4 @@ public class UserController {
 	public ResponseEntity<ResponseStructure<List<User>>> findAllUsers(){
 		return userService.findAllUsers();
 	}
-	
-	
 }
