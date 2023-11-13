@@ -37,7 +37,7 @@ public class AddressController {
 		
 	}
 	
-	@DeleteMapping("/delete/{addressId")
+	@DeleteMapping("/delete/{addressId}")
 	public ResponseEntity<ResponseStructure<Address>> deleteAddress(int addressId) {
 		
 		return addressService.deleteAddress(addressId);
