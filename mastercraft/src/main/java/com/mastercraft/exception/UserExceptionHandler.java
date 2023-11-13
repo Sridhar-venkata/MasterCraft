@@ -20,7 +20,7 @@ public class UserExceptionHandler {
 
 	@ExceptionHandler(UserAlreadyExistException.class)
 	public ResponseEntity<ResponseStructure<String>> catchUserAlreadyExistException(UserAlreadyExistException e) {
-		ResponseStructure<String> rs = new ResponseStructure<String>(HttpStatus.CONFLICT.value(), e.getMessage(), null);
+		ResponseStructure<String> rs = new ResponseStructure<String>(HttpStatus.CONFLICT.value(), "FAILED",e.getMessage());
 		return new ResponseEntity<ResponseStructure<String>>(rs, HttpStatus.CONFLICT);
 	}
 }
