@@ -20,8 +20,6 @@ import lombok.Setter;
 
 
 @Entity
-@Setter
-@Getter
 @Table(name="orders")
 public class Order {
 	
