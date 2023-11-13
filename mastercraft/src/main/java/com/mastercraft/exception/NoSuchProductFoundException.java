@@ -1,16 +1,9 @@
 package com.mastercraft.exception;
 
-public class NoSuchProductFoundException extends RuntimeException {
-
-	private String message;
-
+public class NoSuchProductFoundException extends RuntimeException{
+	
 	public NoSuchProductFoundException(String message) {
-		this.message = message;
-	}
+		super(message);
 
-	@Override
-	public String getMessage() {
-		return this.message;
 	}
-
 }

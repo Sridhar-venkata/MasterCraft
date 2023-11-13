@@ -1,12 +1,18 @@
 package com.mastercraft.dto;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
+@NoArgsConstructor
 public class ResponseStructure<T> {
-	private int status;
+	
+	private int statusCode;
 	private String message;
 	private T data;
+
 }
