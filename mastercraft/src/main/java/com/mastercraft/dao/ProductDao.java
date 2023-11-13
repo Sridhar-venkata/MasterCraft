@@ -15,11 +15,7 @@ public class ProductDao {
 	@Autowired
 	public ProductRepository productRepository;
 
-	public Product saveProduct(Product product) {
-		return productRepository.save(product);
-	}
-
-	public Product updateProduct(Product product) {
+	public Product saveOrUpdateProduct(Product product) {
 		return productRepository.save(product);
 	}
 
