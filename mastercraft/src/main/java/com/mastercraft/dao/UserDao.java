@@ -16,11 +16,7 @@ public class UserDao {
 	@Autowired
 	private UserRepository userRepository;
 
-	public User saveUser(User user) {
-		return userRepository.save(user);
-	}
-
-	public User updateUser(User user) {
+	public User saveOrUpdateUser(User user) {
 		return userRepository.save(user);
 	}
 
@@ -49,5 +45,4 @@ public class UserDao {
 		}
 		return false;
 	}
-
 }
