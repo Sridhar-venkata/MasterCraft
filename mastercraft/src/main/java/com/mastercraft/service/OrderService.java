@@ -1,4 +1,4 @@
-package com.mastercraft.services;
+package com.mastercraft.service;
 
 import java.util.List;
 
@@ -10,23 +10,23 @@ import org.springframework.stereotype.Service;
 import com.mastercraft.dao.OrderDao;
 import com.mastercraft.dao.UserDao;
 import com.mastercraft.dto.ResponseStructure;
-import com.mastercraft.entities.Order;
-import com.mastercraft.entities.User;
-import com.mastercraft.exceptions.NoSuchOrderFoundException;
-import com.mastercraft.exceptions.NoSuchUserFoundException;
+import com.mastercraft.entity.Order;
+import com.mastercraft.entity.User;
+import com.mastercraft.exception.NoSuchOrderFoundException;
+import com.mastercraft.exception.NoSuchUserFoundException;
 
 @Service
 public class OrderService {
 
 	@Autowired
-	private OrderDao dao;
+	private OrderDao orderDao;
 
 	@Autowired
 	private UserDao userDao;
 
 	public ResponseEntity<ResponseStructure<Order>> saveOrder(Order order) {
 
-		order = dao.saveOrder(order);
+		order = orderDao.saveOrder(order);
 
 		ResponseStructure<Order> rs = new ResponseStructure<Order>(HttpStatus.CREATED.value(), "Success", order);
 
@@ -34,25 +34,34 @@ public class OrderService {
 	}
 
 	public ResponseEntity<ResponseStructure<Boolean>> deleteOrderById(int orderId) {
-		return null;
+		Order order = orderDao.findOrderById(orderId);
+
+		if (order == null)
+			throw new NoSuchOrderFoundException("No orders placed yet");
+
+		orderDao.deleteOrder(order);
+
+		ResponseStructure<Boolean> rs = new ResponseStructure<>(HttpStatus.NO_CONTENT.value(), "Success", true);
+
+		return new ResponseEntity<ResponseStructure<Boolean>>(rs, HttpStatus.NO_CONTENT);
 	}
 
-	public ResponseEntity<ResponseStructure<Order>> updateOrder(Order order) {
-		order = dao.updateOrder(order);
+	public ResponseEntity<ResponseStructure<Order>> findById(int orderId) {
+		Order order = orderDao.findOrderById(orderId);
 
-		ResponseStructure<Order> rs = new ResponseStructure<Order>(HttpStatus.OK.value(), "Success", order);
+		if (order == null)
+			throw new NoSuchOrderFoundException("No orders placed yet");
+
+		orderDao.deleteOrder(order);
+
+		ResponseStructure<Order> rs = new ResponseStructure<>(HttpStatus.OK.value(), "Success", order);
 
 		return new ResponseEntity<ResponseStructure<Order>>(rs, HttpStatus.OK);
 	}
 
-	public ResponseEntity<ResponseStructure<Order>> findById(int orderId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 	public ResponseEntity<ResponseStructure<List<Order>>> findAllOrders() {
 
-		List<Order> orders = dao.findAllOrders();
+		List<Order> orders = orderDao.findAllOrders();
 
 		if (orders.isEmpty())
 			throw new NoSuchOrderFoundException("No orders placed yet");

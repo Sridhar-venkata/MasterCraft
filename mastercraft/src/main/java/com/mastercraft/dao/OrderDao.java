@@ -40,4 +40,8 @@ public class OrderDao {
 		orderRepository.delete(order);
 	}
 
+	public List<Order> findAllOrders() {
+		return orderRepository.findAll();
+	}
+
 }
