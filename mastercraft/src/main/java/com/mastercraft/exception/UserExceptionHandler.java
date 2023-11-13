@@ -13,8 +13,8 @@ import com.mastercraft.dto.ResponseStructure;
 @ControllerAdvice
 public class UserExceptionHandler extends ResponseEntityExceptionHandler {
 	
-	@ExceptionHandler(NoSuchUserFoundException.class)
-	public ResponseEntity<ResponseStructure<String>> catchNoSuchUserFoundException(NoSuchUserFoundException noSuchUserFoundException)
+	@ExceptionHandler(NoSuchUserFoundExcetion.class)
+	public ResponseEntity<ResponseStructure<String>> catchNoSuchUserFoundException(NoSuchUserFoundExcetion noSuchUserFoundException)
 	{
 		ResponseStructure<String> responseStructure=new ResponseStructure<String>();
 		responseStructure.setMessage("User Not Found");
