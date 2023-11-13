@@ -26,7 +26,7 @@ public class OrderService {
 
 	public ResponseEntity<ResponseStructure<Order>> saveOrder(Order order) {
 
-		order = orderDao.saveOrder(order);
+		order = orderDao.saveOrUpdateOrder(order);
 
 		ResponseStructure<Order> rs = new ResponseStructure<Order>(HttpStatus.CREATED.value(), "Success", order);
 
