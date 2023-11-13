@@ -15,13 +15,7 @@ public class AddressDao {
 	@Autowired
 	public AddressRepository addressRepository;
 	
-	public Address saveAddress(Address address) {
-		
-		return addressRepository.save(address);
-		
-	}
-	
-	public Address updateAddress(Address address) {
+	public Address saveOrUpdateAddress(Address address) {
 		
 		return addressRepository.save(address);
 		
