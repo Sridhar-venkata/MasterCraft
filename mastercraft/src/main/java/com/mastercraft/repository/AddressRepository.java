@@ -9,7 +9,7 @@ import com.mastercraft.entity.Address;
 
 public interface AddressRepository extends JpaRepository<Address, Integer> {
 	
-	@Query("SELECT u.address FROM User u WHERE u.id=:userId")
+	@Query("SELECT u.address FROM User u WHERE u.userId=:userId")
 	List<Address> findByUserId(int userId);
 
 }
