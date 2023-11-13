@@ -37,12 +37,7 @@ public class UserDao {
 		return userRepository.findByPhoneNumberAndPassword(phoneNumber, password);
 	}
 
-	public boolean deleteUserById(int userId) {		
-		Optional<User> optional = userRepository.findById(userId);
-		if (optional.isPresent()) {
-			userRepository.delete(optional.get());
-			return true;
-		}
-		return false;
+	public void deleteUserById(User user) {		
+		userRepository.delete(user);
 	}
 }
