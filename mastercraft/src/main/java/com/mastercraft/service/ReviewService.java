@@ -1,5 +1,6 @@
 package com.mastercraft.service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -42,6 +43,7 @@ public class ReviewService {
 
 	public ResponseEntity<ResponseStructure<Review>> updateReview(Review review) {
 		Review recievedReview = reviewDao.findReviewById(review.getReviewId());
+		recievedReview.setCreatedOn(LocalDateTime.now());
 		if (recievedReview != null) {
 			Review reviewData = reviewDao.saveOrUpdateReview(review);
 			ResponseStructure<Review> responseStructure = new ResponseStructure<Review>(HttpStatus.OK.value(),"Updated Success",reviewData);
