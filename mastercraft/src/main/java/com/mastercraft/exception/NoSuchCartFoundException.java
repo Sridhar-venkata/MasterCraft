@@ -1,15 +1,8 @@
 package com.mastercraft.exception;
 
-public class NoSuchCartFoundException extends RuntimeException{
-	
-	String message;
+public class NoSuchCartFoundException extends RuntimeException {
 
 	public NoSuchCartFoundException(String message) {
-		super();
-		this.message = message;
-	}
-	@Override
-	public String getMessage() {
-		return message;
+    super(message);
 	}
 }
