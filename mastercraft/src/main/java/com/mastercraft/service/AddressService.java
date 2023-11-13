@@ -13,7 +13,7 @@ import com.mastercraft.dto.ResponseStructure;
 import com.mastercraft.entity.Address;
 import com.mastercraft.entity.User;
 import com.mastercraft.exception.NoSuchAddressFoundException;
-import com.mastercraft.exception.NoSuchUserFoundExcetion;
+import com.mastercraft.exception.NoSuchUserFoundException;
 import com.mastercraft.util.UserRole;
 
 @Service
@@ -35,7 +35,7 @@ public class AddressService {
 			return new ResponseEntity<ResponseStructure<Address>>(responseStructure,HttpStatus.CREATED);
 			
 		}
-		else throw new NoSuchUserFoundExcetion("No Such User Found with Id:"+userId);
+		else throw new NoSuchUserFoundException("No Such User Found with Id:"+userId);
 	}
 	
 	public ResponseEntity<ResponseStructure<Address>> updateAddress(Address address) {
