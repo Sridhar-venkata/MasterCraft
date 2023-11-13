@@ -14,11 +14,7 @@ public class CartDao {
 	@Autowired
 	private CartRepository cartRepository;
 
-	public Cart saveCart(Cart cart) {
-		return cartRepository.save(cart);
-	}
-
-	public Cart updateCart(Cart cart) {
+	public Cart saveOrUpdateCart(Cart cart) {
 		return cartRepository.save(cart);
 	}
 
