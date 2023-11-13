@@ -30,7 +30,7 @@ public class ReviewDao {
 		return reviewRepository.findByProductId(productId);
 	}
 
-	public void deleteReviewById(Review review) {
+	public void deleteReview(Review review) {
 		reviewRepository.delete(review);
 
 	}
