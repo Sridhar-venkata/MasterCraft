@@ -15,11 +15,7 @@ public class OrderDao {
 	@Autowired
 	private OrderRepository orderRepository;
 
-	public Order saveOrder(Order order) {
-		return orderRepository.save(order);
-	}
-
-	public Order updateOrder(Order order) {
+	public Order saveOrUpdateOrder(Order order) {
 		return orderRepository.save(order);
 	}
 
