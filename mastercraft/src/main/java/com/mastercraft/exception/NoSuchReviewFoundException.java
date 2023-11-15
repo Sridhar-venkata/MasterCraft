@@ -1,10 +1,10 @@
 package com.mastercraft.exception;
 
-public class NosuchReviewFoundException extends RuntimeException {
+public class NoSuchReviewFoundException extends RuntimeException {
 	
 	String message;
 
-	public NosuchReviewFoundException(String message) {
+	public NoSuchReviewFoundException(String message) {
 		super();
 		this.message = message;
 	}

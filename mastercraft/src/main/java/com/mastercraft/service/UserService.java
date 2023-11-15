@@ -23,11 +23,11 @@ public class UserService {
 
 	public ResponseEntity<ResponseStructure<User>> saveUser(User user) {
 
-		Optional<User> optionalUser = dao.findUserByRole(UserRole.MERCHANT).stream()
+		Optional<User> optionalUser = dao.findAllUsers().stream()
 				.filter(u -> u.getEmail().equals(user.getEmail()) || u.getPhoneNumber() == user.getPhoneNumber())
 				.findAny();
 
-		if (optionalUser.isEmpty())
+		if (!optionalUser.isEmpty())
 			throw new UserAlreadyExistException("Email or Phone Number already in use.");
 
 		User existinguser = dao.saveOrUpdateUser(user);
@@ -41,7 +41,7 @@ public class UserService {
 
 		final User userInput = user;
 
-		Optional<User> optionalUser = dao.findUserByRole(user.getRole()).stream().filter(
+		Optional<User> optionalUser = dao.findAllUsers().stream().filter(
 				u -> u.getEmail().equals(userInput.getEmail()) || u.getPhoneNumber() == userInput.getPhoneNumber())
 				.findAny();
 

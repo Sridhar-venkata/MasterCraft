@@ -11,8 +11,9 @@ import com.mastercraft.dto.ResponseStructure;
 @ControllerAdvice
 public class ReviewExceptionHandler extends ResponseEntityExceptionHandler{
 	
-	@ExceptionHandler(NosuchReviewFoundException.class)
-	public ResponseEntity<ResponseStructure<String>> catchNosuchReviewFoundException(NosuchReviewFoundException nosuchReviewFoundException)
+	@ExceptionHandler(NoSuchReviewFoundException.class)
+	public ResponseEntity<ResponseStructure<String>> catchNosuchReviewFoundException(NoSuchReviewFoundException nosuchReviewFoundException)
+
 	{
 		ResponseStructure<String> responseStructure=new ResponseStructure<String>();
 		responseStructure.setMessage("Review Id Not Found");

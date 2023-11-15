@@ -12,7 +12,7 @@ import com.mastercraft.dto.ResponseStructure;
 public class AddressExceptionHandler extends ResponseEntityExceptionHandler{
 	
 	@ExceptionHandler(NoSuchAddressFoundException.class)
-	public ResponseEntity<ResponseStructure<String>> catchNoSuchAddressFound(NoSuchAddressFoundException noSuchAddressFound){
+	public ResponseEntity<ResponseStructure<String>> addressNoSuchAddressFound(NoSuchAddressFoundException noSuchAddressFound){
 		
 		ResponseStructure<String> responseStructure=new ResponseStructure<String>(HttpStatus.NOT_FOUND.value(),"Not Found",noSuchAddressFound.getMessage());
 		

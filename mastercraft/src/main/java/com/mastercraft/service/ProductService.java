@@ -14,7 +14,7 @@ import com.mastercraft.dto.ResponseStructure;
 import com.mastercraft.entity.Product;
 import com.mastercraft.entity.User;
 import com.mastercraft.exception.NoSuchProductFoundException;
-import com.mastercraft.exception.NoSuchUserFoundExcetion;
+import com.mastercraft.exception.NoSuchUserFoundException;
 import com.mastercraft.util.UserRole;
 
 @Service
@@ -40,7 +40,7 @@ public class ProductService {
 			return new ResponseEntity<ResponseStructure<Product>>(responseStructure, HttpStatus.CREATED);
 		}
 		else {
-			throw new NoSuchUserFoundExcetion("No Such User Found with Id:"+userId);
+			throw new NoSuchUserFoundException("No Such User Found with Id:"+userId);
 		}
 
 	}
